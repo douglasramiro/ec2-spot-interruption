@@ -19,10 +19,10 @@ while True:
       logging.warning("No interruption is coming.... The application can continue working...")
     
     if '404' not in interruption.text:
-      logging.warning("EC2 Spot Instance interruption notice received... Will not read a message from the queue...")
+      logging.warning("EC2 Spot Instance interruption notice received... Will not generate lottery numbers...")
       time.sleep(10)
         
     if '404' not in rebalance.text:
-      logging.warning("EC2 Spot Instance Rebalance notice received... Will not read a message from the queue...")
+      logging.warning("EC2 Spot Instance Rebalance notice received... Will not generate lottery numbers...")
       time.sleep(10)
 
