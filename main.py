@@ -1,6 +1,8 @@
 import logging
 import requests
 import time
+from random import randrange
+
 
 
 def generate_numbers():
@@ -13,8 +15,7 @@ while True:
     interruption = requests.get('http://169.254.169.254/latest/meta-data/spot/instance-action');
     rebalance = requests.get('http://169.254.169.254/latest/meta-data/events/recommendations/rebalance');
     if '404' in interruption.text and '404'in rebalance.text:
-      message = {"generatedNumbers": generate_numbers(), 'generatedAt': datetime.now().strftime("%d/%m/%Y %H:%M:%S")}
-      logging.warning(message)
+      logging.warning(generate_numbers())
       logging.warning("No interruption is coming.... The application can continue working...")
     
     if '404' not in interruption.text:
